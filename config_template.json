@@ -1,0 +1,4 @@
+{
+    "token": "your bot token here",
+    "load_token_from_env": false
+}

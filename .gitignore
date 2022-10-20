@@ -106,3 +106,6 @@ dist
 # replit files
 .replit
 replit.nix
+
+# project files
+config.json
