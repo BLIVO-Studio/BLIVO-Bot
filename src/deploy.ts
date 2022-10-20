@@ -1,18 +1,14 @@
-import fs from 'node:fs'
-
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v10";
-import { applicationId, guildId, commands_folder_dir } from '../config.json';
+import { applicationId, guildId } from '../config.json';
 import { getToken } from './token'
+import { loadCommands } from './loader';
 
 const commands: any[] = [];
 
-const commandFiles = fs.readdirSync(commands_folder_dir).filter(file => file.endsWith('.ts'));
-
-for (const file of commandFiles) {    
-	const command = require(`./commands/${file.replace('.ts', '')}`);
-	commands.push(command.data.toJSON());
-}
+loadCommands((command: any) => {
+   commands.push(command.data.toJSON()); 
+});
 
 const rest = new REST({ version: '10' }).setToken(getToken());
 
