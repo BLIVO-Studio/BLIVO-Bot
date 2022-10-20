@@ -2,5 +2,6 @@
     "token": "your-bot-token-here",
     "load_token_from_env": false,
     "guildId": "your-guild-id-here",
-    "applicationId": "your-bot-application-id-here"
+    "applicationId": "your-bot-application-id-here",
+    "commands_folder_dir": "commands-folder-directory-here"
 }
