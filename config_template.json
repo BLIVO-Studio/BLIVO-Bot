@@ -1,4 +1,6 @@
 {
-    "token": "your bot token here",
-    "load_token_from_env": false
+    "token": "your-bot-token-here",
+    "load_token_from_env": false,
+    "guildId": "your-guild-id-here",
+    "applicationId": "your-bot-application-id-here"
 }
