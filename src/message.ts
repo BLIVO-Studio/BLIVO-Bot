@@ -1,8 +1,9 @@
 import { TYPE } from "../message.json";
+import { lang } from "../config.json"
 
 export type langMsg = typeof TYPE;
 
-function getMessage(messageContainer: langMsg, lang : string) {
+function getMessage(messageContainer: langMsg) {
     if (lang == "KR") {
         return messageContainer.KR
     } else if (lang == "ENG") {
