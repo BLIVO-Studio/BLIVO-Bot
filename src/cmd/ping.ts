@@ -1,10 +1,12 @@
 import { SlashCommandBuilder, EmbedBuilder } from "@discordjs/builders";
-import { embed_color } from "../../config.json";
+import { embed_color, lang } from "../../config.json";
+import { CMD_PING_DESCRIPTION } from "../../message.json";
+import { getMessage } from "../message"
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ping')
-        .setDescription("Replies with 'Pong!'"),
+        .setDescription(getMessage(CMD_PING_DESCRIPTION, lang)),
     async execute(interaction: any) {
         const embeds = new EmbedBuilder()
             .setColor(Number(embed_color))

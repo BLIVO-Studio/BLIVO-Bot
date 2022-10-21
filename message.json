@@ -1,0 +1,12 @@
+{
+    "TYPE" : {
+        "ENG": "",
+        "KR": ""
+    },
+
+    
+    "CMD_PING_DESCRIPTION" : {
+        "ENG" : "Replies with 'Pong!', with bot latency.",
+        "KR" : "'Pong!' 대답과 함께 봇 지연 시간을 전송합니다."
+    }
+}
