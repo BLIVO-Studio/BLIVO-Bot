@@ -3,5 +3,7 @@
     "load_token_from_env": false,
     "guildId": "your-guild-id-here",
     "applicationId": "your-bot-application-id-here",
-    "commands_folder_dir": "commands-folder-directory-here"
+    "commands_folder_dir": "commands-folder-directory-here",
+    "embed_color": "0xC383FC",
+    "embed_inline": true    
 }

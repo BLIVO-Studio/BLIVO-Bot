@@ -1,7 +1,7 @@
 import { Events, GatewayIntentBits } from "discord.js";
 import { Collection } from "discord.js";
 import { getToken } from './token'
-import { ExtendedClient } from './extensions/client'
+import { ExtendedClient } from './ext/client'
 import { loadCommands } from './loader'
 
 const client = new ExtendedClient({ intents: [GatewayIntentBits.Guilds] });
