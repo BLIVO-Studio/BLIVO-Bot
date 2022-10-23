@@ -8,6 +8,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription(getMessage(CMD_PING_DESCRIPTION)),
+    
     async execute(interaction: ChatInputCommandInteraction) {
         const embeds = getDefaultEmbed(interaction);
             embeds.setTitle('Pong!')

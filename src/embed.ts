@@ -2,12 +2,14 @@ import { EmbedBuilder } from "@discordjs/builders";
 import { embed_color } from "../config.json";
 import { ChatInputCommandInteraction } from "discord.js";
 
-function tryConvertToString(s : string | null | undefined) : string {
-    if (s == null || s == undefined) {
-        throw new Error('Given string is null')
+function safeGet<T> (obj: any): T {
+    const conv = obj as T;
+    
+    if (conv == null || conv == undefined) {
+        throw new Error('Given object is null or undefined')
     }
 
-    return s;
+    return conv;
 }
 
 
@@ -15,7 +17,7 @@ function getDefaultEmbed(interaction: ChatInputCommandInteraction) : EmbedBuilde
     return new EmbedBuilder()
         .setColor(Number(embed_color))
         .setTimestamp()
-        .setFooter({text: `Requested by ${interaction.user.tag}`, iconURL: tryConvertToString(interaction.user.avatarURL())});
+        .setFooter({text: `Requested by ${interaction.user.tag}`, iconURL: safeGet<string>(interaction.user.avatarURL())});
 }
 
-export { getDefaultEmbed }
+export { getDefaultEmbed, safeGet }

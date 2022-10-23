@@ -2,5 +2,64 @@
     "CMD_PING_DESCRIPTION" : {
         "ENG" : "Replies with 'Pong!', with bot latency.",
         "KR" : "'Pong!' 대답과 함께 봇 지연 시간을 전송합니다."
+    },
+
+    
+
+    "CMD_ANNOUNCE_DESCRIPTION" : {
+        "ENG" : "Provides an easy way to upload announcement",
+        "KR" : "공시사항을 업로드합니다."
+    }, 
+
+    "CMD_ANNOUNCE_CHOICE_CONTENT" : {
+        "ENG" : "content",
+        "KR" : "내용"
+    },
+
+    "CMD_ANNOUNCE_CHOICE_CONTENT_DESCRIPTION" : {
+        "ENG" : "Text to upload as announcement",
+        "KR" : "공지사항으로 업로드할 텍스트"
+    },
+
+    "CMD_ANNOUNCE_CHOICE_READER" : {
+        "ENG" : "reader",
+        "KR" : "대상"
+    },
+
+    "CMD_ANNOUNCE_CHOICE_READER_DESCRIPTION" : {
+        "ENG" : "Mention the reader of this announcement.",
+        "KR" : "이 공지사항을 읽어야 할 멤버를 멘션하세요."
+    },
+
+    "CMD_ANNOUNCE_CHOICE_REACTION" : {
+        "ENG" : "reaction",
+        "KR" : "리액션"
+    },
+
+    "CMD_ANNOUNCE_CHOICE_REACTION_DESCRIPTION" : {
+        "ENG" : "A emoji to add to the announcement as the reaction",
+        "KR" : "공지사항 메시지에 추가할 이모티콘 반응"
+    },
+
+    "CMD_ANNOUNCE_EMBED_TITLE" : {
+        "ENG" : "New announcement updated!",
+        "KR" : "새로운 공지가 올라왔습니다!"
+    },
+
+    "CMD_ANNOUNCE_EMBED_READER_NAME" : {
+        "ENG" : "Attention!",
+        "KR" : "주목하세요!"
+    },
+
+    "CMD_ANNOUNCE_EMBED_CONTENT_NAME" : {
+        "ENG" : "Announcement",
+        "KR" : "공지사항"
+    },
+
+
+
+    "CMD_VOTE_DESCRIPTION" : {
+        "ENG" : "Provides an easy way to vote.",
+        "KR" : "간단한 투표를 진행합니다."
     }
-}
+} 

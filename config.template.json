@@ -6,5 +6,7 @@
     "commands_folder_dir": "commands-folder-directory-here",
     "embed_color": "0xC383FC",
     "embed_inline": true,
-    "lang": "KR or ENG"
+    "lang": "KR or ENG",
+    "default_announcement_mention": "@everyone",
+    "default_announcement_reaction_emoji": ":green_circle:"
 }
