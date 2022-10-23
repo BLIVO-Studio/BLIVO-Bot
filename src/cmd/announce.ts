@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { ChatInputCommandInteraction, CommandInteractionOption, CacheType, Message } from "discord.js";
+import { ChatInputCommandInteraction, CommandInteractionOption, CacheType } from "discord.js";
 import {
     CMD_ANNOUNCE_DESCRIPTION,
     CMD_ANNOUNCE_CHOICE_CONTENT,
@@ -53,11 +53,9 @@ module.exports = {
                 { name: getMessage(CMD_ANNOUNCE_EMBED_CONTENT_NAME), value: safeGet<string>(content.value).toString().trim() }
             );
 
-        await interaction.reply({ embeds: [embeds], fetchReply: true})
-            .then(reply => reply.react(reaction))
-            .catch(error => console.log(error));
-        
+        const reply = await interaction.reply({ embeds: [embeds], fetchReply: true });
+        reply.react(reaction); // Currently this doesn't work and I don't know why
+
         //const reply = await interaction.reply({ embeds: [embeds], fetchReply: true});        
-        // console.log(reply.id);
     }
 }
