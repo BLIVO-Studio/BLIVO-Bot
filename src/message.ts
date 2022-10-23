@@ -1,9 +1,7 @@
-import { TYPE } from "../message.json";
+import { BotMessage } from "./type";
 import { lang } from "../config.json"
 
-export type langMsg = typeof TYPE;
-
-function getMessage(messageContainer: langMsg) {
+function getMessage(messageContainer: BotMessage) {
     if (lang == "KR") {
         return messageContainer.KR
     } else if (lang == "ENG") {

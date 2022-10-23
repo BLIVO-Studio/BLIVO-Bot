@@ -3,10 +3,11 @@ import { Routes } from "discord-api-types/v10";
 import { applicationId, guildId } from '../config.json';
 import { getToken } from './token'
 import { loadCommands } from './loader';
+import { Command } from './type';
 
 const commands: any[] = [];
 
-loadCommands((command: any) => {
+loadCommands((command: Command) => {
    commands.push(command.data.toJSON()); 
 });
 

@@ -3,11 +3,12 @@ import { Collection } from "discord.js";
 import { getToken } from './token'
 import { ExtendedClient } from './ext/client'
 import { loadCommands } from './loader'
+import { Command } from './type'
 
 const client = new ExtendedClient({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection()
 
-loadCommands((command: any) => {
+loadCommands((command: Command) => {
     client.commands.set(command.data.name, command);
 });
 

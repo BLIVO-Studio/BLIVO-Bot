@@ -1,12 +1,13 @@
-import * as Discord from "discord.js";
+import { Client, ClientOptions, Collection } from 'discord.js';
+import { Command } from '../type'
 
-class ExtendedClient extends Discord.Client {
+class ExtendedClient extends Client {
 
-     public commands: Discord.Collection<string, any>;
+     public commands: Collection<string, Command>;
 
-     constructor(options: Discord.ClientOptions){
+     constructor(options: ClientOptions){
           super(options);
-          this.commands = new Discord.Collection();
+          this.commands = new Collection();
      }
 
 }
