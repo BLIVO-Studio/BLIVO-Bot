@@ -61,7 +61,7 @@
     "CMD_VOTE_DESCRIPTION" : {
         "ENG" : "Provides an easy way to vote.",
         "KR" : "간단한 투표를 진행합니다."
-    },
+    },    
 
     "CMD_VOTE_CHOICE_TITLE" : {
         "ENG" : "title",
@@ -91,5 +91,25 @@
     "CMD_VOTE_CHOICE_ITEM1_DESCRIPTION" : {
         "ENG" : "An option for the vote",
         "KR" : "투표의 선택지"
-    }    
+    },
+
+    "CMD_VOTE_EMBED_TITLE_PREFIX" : { 
+        "ENG": "Vote: ", 
+        "KR": "투표: "
+    },
+
+    "CMD_VOTE_DEFAULT_ERROR_TITLE" : {
+        "ENG" : "Internal error",
+        "KR" : "오류"
+    },
+
+    "CMD_VOTE_DEFAULT_ERROR_NAME" : {
+        "ENG" : "Error!",
+        "KR" : "오류 발생!"
+    },
+
+    "CMD_VOTE_DEFAULT_ERROR_FIELD" : {
+        "ENG" : "An internal error occurred!",
+        "KR" : "동작 중 내부에서 오류가 발생했습니다!"
+    }
 } 

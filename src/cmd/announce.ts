@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { ChatInputCommandInteraction, CommandInteractionOption, CacheType } from "discord.js";
+import { ChatInputCommandInteraction, CommandInteractionOption, CacheType, MessageMentions } from "discord.js";
 import {
     CMD_ANNOUNCE_DESCRIPTION,
     CMD_ANNOUNCE_CHOICE_CONTENT,
@@ -40,7 +40,7 @@ module.exports = {
 
         const content = safeGet<CommandInteractionOption<CacheType>>(interaction.options.get(getMessage(CMD_ANNOUNCE_CHOICE_CONTENT)));
 
-        tmp = interaction.options.get(getMessage(CMD_ANNOUNCE_CHOICE_READER));
+        tmp = interaction.options.get(getMessage(CMD_ANNOUNCE_CHOICE_READER));        
         const reader = tmp == null ? default_announcement_mention : safeGet<string>(tmp.value);
 
         tmp = interaction.options.get(getMessage(CMD_ANNOUNCE_CHOICE_REACTION));

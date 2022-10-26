@@ -5,7 +5,7 @@ import { ExtendedClient } from './ext/client'
 import { loadCommands } from './loader'
 import { Command } from './type'
 import { safeGet } from './embed'
-import { CMD_ANNOUNCE_EMBED_TITLE } from '../message.json'
+import { CMD_ANNOUNCE_EMBED_TITLE, CMD_VOTE_EMBED_TITLE_PREFIX } from '../message.json'
 import { getMessage } from "./message";
 import {
     default_announcement_reaction_emoji,
@@ -18,7 +18,25 @@ import {
     default_vote_choice_7,
     default_vote_choice_8,
     default_vote_choice_9,
+    id_separator,
+    reaction_delay
 } from "../config.json"
+
+const vote_reactions: string[] = [
+    default_vote_choice_1,
+    default_vote_choice_2,
+    default_vote_choice_3,
+    default_vote_choice_4,
+    default_vote_choice_5,
+    default_vote_choice_6,
+    default_vote_choice_7,
+    default_vote_choice_8,
+    default_vote_choice_9
+]
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 const client = new ExtendedClient({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessages,
@@ -38,10 +56,27 @@ client.once(Events.ClientReady, (client) => {
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.id != safeGet<ClientUser>(client.user).id) return;
 
-    if (message.embeds.length == 0) return;
+    if (message.embeds.length == 0) return;    
 
     if (safeGet<string>(message.embeds[0].title) === getMessage(CMD_ANNOUNCE_EMBED_TITLE)) {
         message.react(default_announcement_reaction_emoji);
+    } else if (safeGet<string>(message.embeds[0].title).includes(getMessage(CMD_VOTE_EMBED_TITLE_PREFIX))) {      
+        const text = safeGet<string>(message.embeds[1].footer?.text);
+        const idx = text.indexOf(id_separator);
+        const len = text.slice(idx + 1);
+        const num: number = Number(len)
+
+        if (num > 9) return;
+
+        async function react(i: number) {
+            message.react(vote_reactions[i]);
+            await delay(Number(reaction_delay));
+            return;
+        }
+
+        for (let i = 0; i < num; i++) {
+            react(i);
+        }
     }
 });
 
