@@ -111,5 +111,20 @@
     "CMD_VOTE_DEFAULT_ERROR_FIELD" : {
         "ENG" : "An internal error occurred!",
         "KR" : "동작 중 내부에서 오류가 발생했습니다!"
+    }, 
+
+    "CMD_VOTE_ERROR_FIELD_01" : {
+        "ENG" : "The number of each choice must be consecutive numbers.",
+        "KR" : "각 선택지의 번호는 일련의 연속된 숫자여야 합니다."
+    },
+
+    "CMD_VOTE_ERROR_FIELD_01_01" : {
+      "ENG" : "are not consecutive numbers.",
+      "KR" : "는 연속된 숫자의 나열이 아닙니다."
+    }, 
+
+    "CMD_VOTE_ERROR_FIELD_01_CONJ" : {
+      "ENG" : "and",
+      "KR" : "그리고"
     }
 } 

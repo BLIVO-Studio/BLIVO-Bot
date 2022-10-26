@@ -1,13 +1,13 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 
 let Command: {
-   data: SlashCommandBuilder;
-   execute: Function
+  data: SlashCommandBuilder;
+  execute: Function
 };
 
 let BotMessage: {
-    ENG: string;
-    KR: string
+  ENG: string;
+  KR: string
 }
 
 export type Command = typeof Command

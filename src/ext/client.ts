@@ -3,12 +3,12 @@ import { Command } from '../type'
 
 class ExtendedClient extends Client {
 
-     public commands: Collection<string, Command>;
+  public commands: Collection<string, Command>;
 
-     constructor(options: ClientOptions){
-          super(options);
-          this.commands = new Collection();
-     }
+  constructor(options: ClientOptions) {
+    super(options);
+    this.commands = new Collection();
+  }
 
 }
 

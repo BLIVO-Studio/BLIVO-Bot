@@ -4,6 +4,7 @@ import { getToken } from './token'
 import { ExtendedClient } from './ext/client'
 import { loadCommands } from './loader'
 import { Command } from './type'
+/*
 import { safeGet } from './embed'
 import { CMD_ANNOUNCE_EMBED_TITLE, CMD_VOTE_EMBED_TITLE_PREFIX } from '../message.json'
 import { getMessage } from "./message";
@@ -22,6 +23,7 @@ import {
     reaction_delay
 } from "../config.json"
 
+
 const vote_reactions: string[] = [
     default_vote_choice_1,
     default_vote_choice_2,
@@ -37,21 +39,23 @@ const vote_reactions: string[] = [
 function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
+*/
 
 const client = new ExtendedClient({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.Guilds]
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessages,
+  GatewayIntentBits.Guilds]
 });
 client.commands = new Collection()
 
 loadCommands((command: Command) => {
-    client.commands.set(command.data.name, command);
+  client.commands.set(command.data.name, command);
 });
 
 client.once(Events.ClientReady, (client) => {
-    console.log(`Ready! Logged in as ${client.user.tag}`);
+  console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
+/*
 // I know this is not a good way. But currently 'react' method doesn't work on individual command script and I don't know why.
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.id != safeGet<ClientUser>(client.user).id) return;
@@ -59,7 +63,7 @@ client.on(Events.MessageCreate, async (message) => {
     if (message.embeds.length == 0) return;    
 
     if (safeGet<string>(message.embeds[0].title) === getMessage(CMD_ANNOUNCE_EMBED_TITLE)) {
-        message.react(default_announcement_reaction_emoji);
+        // message.react(default_announcement_reaction_emoji);
     } else if (safeGet<string>(message.embeds[0].title).includes(getMessage(CMD_VOTE_EMBED_TITLE_PREFIX))) {      
         const text = safeGet<string>(message.embeds[1].footer?.text);
         const idx = text.indexOf(id_separator);
@@ -79,23 +83,24 @@ client.on(Events.MessageCreate, async (message) => {
         }
     }
 });
+*/
 
 client.on(Events.InteractionCreate, async (interaction) => {
-    if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) return;
 
-    const command = (interaction.client as ExtendedClient).commands.get(interaction.commandName);
+  const command = (interaction.client as ExtendedClient).commands.get(interaction.commandName);
 
-    if (!command) {
-        console.error(`No command matching ${interaction.commandName} was found.`);
-        return;
-    }
+  if (!command) {
+    console.error(`No command matching ${interaction.commandName} was found.`);
+    return;
+  }
 
-    try {
-        await command.execute(interaction);
-    } catch (error) {
-        console.error(error);
-        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true })
-    };
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true })
+  };
 });
 
 
