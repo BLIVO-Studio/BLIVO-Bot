@@ -6,8 +6,19 @@ import { loadCommands } from './loader'
 import { Command } from './type'
 import { safeGet } from './embed'
 import { CMD_ANNOUNCE_EMBED_TITLE } from '../message.json'
-import { default_announcement_reaction_emoji } from '../config.json'
 import { getMessage } from "./message";
+import {
+    default_announcement_reaction_emoji,
+    default_vote_choice_1,
+    default_vote_choice_2,
+    default_vote_choice_3,
+    default_vote_choice_4,
+    default_vote_choice_5,
+    default_vote_choice_6,
+    default_vote_choice_7,
+    default_vote_choice_8,
+    default_vote_choice_9,
+} from "../config.json"
 
 const client = new ExtendedClient({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessages,
@@ -26,6 +37,8 @@ client.once(Events.ClientReady, (client) => {
 // I know this is not a good way. But currently 'react' method doesn't work on individual command script and I don't know why.
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.id != safeGet<ClientUser>(client.user).id) return;
+
+    if (message.embeds.length == 0) return;
 
     if (safeGet<string>(message.embeds[0].title) === getMessage(CMD_ANNOUNCE_EMBED_TITLE)) {
         message.react(default_announcement_reaction_emoji);

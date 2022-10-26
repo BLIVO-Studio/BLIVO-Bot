@@ -8,5 +8,14 @@
     "embed_inline": true,
     "lang": "KR or ENG",
     "default_announcement_mention": "@everyone",
-    "default_announcement_reaction_emoji": ":green_circle:"
+    "default_announcement_reaction_emoji": "🟢",
+    "default_vote_choice_1": "1️⃣",
+    "default_vote_choice_2": "2️⃣",
+    "default_vote_choice_3": "3️⃣",
+    "default_vote_choice_4": "4️⃣",
+    "default_vote_choice_5": "5️⃣",
+    "default_vote_choice_6": "6️⃣",
+    "default_vote_choice_7": "7️⃣",
+    "default_vote_choice_8": "8️⃣",
+    "default_vote_choice_9": "9️⃣"
 }

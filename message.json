@@ -61,5 +61,35 @@
     "CMD_VOTE_DESCRIPTION" : {
         "ENG" : "Provides an easy way to vote.",
         "KR" : "간단한 투표를 진행합니다."
-    }
+    },
+
+    "CMD_VOTE_CHOICE_TITLE" : {
+        "ENG" : "title",
+        "KR" : "제목"
+    },
+
+    "CMD_VOTE_CHOICE_TITLE_DESCRIPTION" : {
+        "ENG" : "Title of the vote",
+        "KR" : "투표 제목"
+    },
+
+    "CMD_VOTE_CHOICE_DESCRIPTION" : {
+        "ENG" : "description",
+        "KR" : "설명"
+    },
+
+    "CMD_VOTE_CHOICE_DESCRIPTION_DESCRIPTION" : {
+        "ENG" : "Description of the vote",
+        "KR" : "투표에 대한 설명"
+    },
+
+    "CMD_VOTE_CHOICE_ITEM1" : {
+        "ENG" : "item 1",
+        "KR" : "1번"
+    },
+
+    "CMD_VOTE_CHOICE_ITEM1_DESCRIPTION" : {
+        "ENG" : "An option for the vote",
+        "KR" : "투표의 선택지"
+    }    
 } 
