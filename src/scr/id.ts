@@ -51,7 +51,9 @@ class ID {
         const s = padTo2Digits(today.getSeconds())
         const ms = padTo2Digits(today.getMilliseconds());
 
-        id = y + m + d + h + mn + s + ms
+        // id = y + m + d + h + mn + s + ms // Long ID
+        // id = `${Number(d) + Number(m)}` + h + mn + s // Short ID
+        id = Number(h + mn + s + ms).toString() // Shorter ID
 
         this.auto_id = id;
     }    
