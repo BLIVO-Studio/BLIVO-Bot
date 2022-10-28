@@ -19,5 +19,6 @@
     "default_vote_choice_8": "8️⃣",
     "default_vote_choice_9": "9️⃣",
     "id_separator": "'-'-is-default-Do-not-use-':'-as-separator",
-    "reaction_delay": "100ms-is-default-Bot-sleeps-for-this-time-before-reacting-again"
+    "reaction_delay": "100ms-is-default-Bot-sleeps-for-this-time-before-reacting-again",
+    "data_save_directory": "directory-to-save-user-data-here"
 }
