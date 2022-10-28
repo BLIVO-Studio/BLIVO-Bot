@@ -109,3 +109,4 @@ replit.nix
 
 # project files
 config.json
+./src/json/
