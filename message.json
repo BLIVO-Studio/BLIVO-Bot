@@ -126,5 +126,57 @@
     "CMD_VOTE_ERROR_FIELD_01_CONJ" : {
       "ENG" : "and",
       "KR" : "그리고"
+    },
+
+    
+
+    "CMD_CLEAR_DESCRIPTION" : {
+        "ENG" : "Delete messages of given count.",
+        "KR" : "주어진 개수만큼 메시지를 삭제합니다."
+    },   
+
+    "CMD_CLEAR_CHOICE_COUNT" : {
+        "ENG" : "count",
+        "KR" : "개수"
+    },
+
+    "CMD_CLEAR_CHOICE_COUNT_DESCRIPTION" : {
+        "ENG" : "Number of messages to clear",
+        "KR" : "삭제할 메시지 수"
+    },
+
+    "CMD_CLEAR_DEFAULT_ERROR_TITLE" : {
+        "ENG" : "Internal error",
+        "KR" : "오류"
+    },
+
+    "CMD_CLEAR_DEFAULT_ERROR_NAME" : {
+        "ENG" : "Error!",
+        "KR" : "오류 발생!"
+    },
+
+    "CMD_CLEAR_DEFAULT_ERROR_FIELD" : {
+        "ENG" : "An internal error occurred!",
+        "KR" : "동작 중 내부에서 오류가 발생했습니다!"
+    }, 
+
+    "CMD_CLEAR_ERROR_FIELD_01_BEGIN" : {
+        "ENG" : "The number of mesages to be deleted must be greater or equal than 0 and be less or equal than ",
+        "KR" : "삭제할 메시지 개수는 0 이상 "
+    },
+
+    "CMD_CLEAR_ERROR_FIELD_01_END" : {
+        "ENG" : ".",
+        "KR" : " 이하여야 합니다."
+    },
+
+    "CMD_CLEAR_EMBED_TITLE" : { 
+        "ENG": "Message cleared", 
+        "KR": "메시지 삭제 완료"
+    },
+
+    "CMD_CLEAR_EMBED_FIELD_NAME_01" : {
+        "ENG": "Number of messages deleted",
+        "KR": "삭제된 메시지 수"
     }
 } 
