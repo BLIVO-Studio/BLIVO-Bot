@@ -58,7 +58,7 @@ module.exports = {
     const id_embeds = getIDEmbed(interaction, id.toString());
 
     const reply = await interaction.reply({ embeds: [embeds, id_embeds], fetchReply: true });
-    reply.react(reaction); // Currently this doesn't work and I don't know why
+    reply.react(reaction); // Currently this doesn't work and the reason is unknown
 
     //const reply = await interaction.reply({ embeds: [embeds], fetchReply: true});        
   }

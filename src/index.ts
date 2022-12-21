@@ -5,11 +5,11 @@ import { ExtendedClient } from './ext/client'
 import { loadCommands } from './loader'
 import { Command } from './type'
 
-import { safeGet } from './embed'
+/*import { safeGet } from './embed'
 import { CMD_ANNOUNCE_EMBED_TITLE, CMD_VOTE_EMBED_TITLE_PREFIX } from '../message.json'
-import { getMessage } from "./message";
+import { getMessage } from "./message";*/
 import {
-    default_announcement_reaction_emoji,
+    //default_announcement_reaction_emoji,
     default_vote_choice_1,
     default_vote_choice_2,
     default_vote_choice_3,
@@ -19,8 +19,8 @@ import {
     default_vote_choice_7,
     default_vote_choice_8,
     default_vote_choice_9,
-    id_separator,
-    reaction_delay
+    //id_separator,
+    //reaction_delay
 } from "../config.json"
 
 
@@ -35,10 +35,6 @@ const vote_reactions: string[] = [
     default_vote_choice_8,
     default_vote_choice_9
 ]
-
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
 
 
 const client = new ExtendedClient({
@@ -55,6 +51,11 @@ client.once(Events.ClientReady, (client) => {
   console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
+
+/*
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 // I know this is not a good way. But currently 'react' method doesn't work on individual command script and I don't know why.
 client.on(Events.MessageCreate, async (message) => {
@@ -84,6 +85,7 @@ client.on(Events.MessageCreate, async (message) => {
         }
     }
 });
+*/
 
 
 client.on(Events.InteractionCreate, async (interaction) => {

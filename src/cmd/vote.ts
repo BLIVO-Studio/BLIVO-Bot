@@ -51,11 +51,7 @@ module.exports = {
         .addStringOption(option =>
             option.setName(getMessage(CMD_VOTE_CHOICE_ITEM1))
                 .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
-                .setRequired(true)) // 'vote' command requires at least one option
-        .addStringOption(option =>
-            option.setName(getMessage(CMD_VOTE_CHOICE_DESCRIPTION))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_DESCRIPTION_DESCRIPTION))
-                .setRequired(false))
+                .setRequired(true)) // 'vote' command requires at least one option        
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(2)))
                 .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
@@ -87,6 +83,10 @@ module.exports = {
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(9)))
                 .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setRequired(false))
+        .addStringOption(option =>
+            option.setName(getMessage(CMD_VOTE_CHOICE_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_DESCRIPTION_DESCRIPTION))
                 .setRequired(false)),
 
     async execute(interaction: ChatInputCommandInteraction) {
