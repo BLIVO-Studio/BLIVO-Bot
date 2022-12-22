@@ -83,14 +83,14 @@
         "KR" : "투표에 대한 설명"
     },
 
-    "CMD_VOTE_CHOICE_ITEM1" : {
+    "CMD_VOTE_CHOICE_ITEM_DEFAULT" : {
         "ENG" : "item 1",
         "KR" : "1번"
     },
 
-    "CMD_VOTE_CHOICE_ITEM1_DESCRIPTION" : {
-        "ENG" : "An option for the vote",
-        "KR" : "투표의 선택지"
+    "CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION" : {
+        "ENG" : "An option for the vote {0}",
+        "KR" : "{0}번 투표 선택지"
     },
 
     "CMD_VOTE_EMBED_TITLE_PREFIX" : { 
@@ -113,20 +113,15 @@
         "KR" : "동작 중 내부에서 오류가 발생했습니다!"
     }, 
 
-    "CMD_VOTE_ERROR_FIELD_01" : {
+    "CMD_VOTE_ERROR_FIELD_SERIES" : {
         "ENG" : "The number of each choice must be consecutive numbers.",
         "KR" : "각 선택지의 번호는 일련의 연속된 숫자여야 합니다."
     },
 
-    "CMD_VOTE_ERROR_FIELD_01_01" : {
-      "ENG" : "are not consecutive numbers.",
-      "KR" : "는 연속된 숫자의 나열이 아닙니다."
-    }, 
-
-    "CMD_VOTE_ERROR_FIELD_01_CONJ" : {
-      "ENG" : "and",
-      "KR" : "그리고"
-    },
+    "CMD_VOTE_ERROR_FIELD_SERIES_ADDITIONAL" : {
+      "ENG" : "{0} are not consecutive numbers.",
+      "KR" : "{0} 그리고 {1}(은/는) 연속된 숫자의 나열이 아닙니다."
+    },     
 
     
 

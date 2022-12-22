@@ -4,16 +4,15 @@ import {
     CMD_VOTE_DESCRIPTION,
     CMD_VOTE_CHOICE_TITLE,
     CMD_VOTE_CHOICE_TITLE_DESCRIPTION,
-    CMD_VOTE_CHOICE_ITEM1,
-    CMD_VOTE_CHOICE_ITEM1_DESCRIPTION,
+    CMD_VOTE_CHOICE_ITEM_DEFAULT,
+    CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION,
     CMD_VOTE_CHOICE_DESCRIPTION,
     CMD_VOTE_CHOICE_DESCRIPTION_DESCRIPTION,
     CMD_VOTE_EMBED_TITLE_PREFIX,
-    CMD_VOTE_ERROR_FIELD_01,
-    CMD_VOTE_ERROR_FIELD_01_01,
+    CMD_VOTE_ERROR_FIELD_SERIES,
+    CMD_VOTE_ERROR_FIELD_SERIES_ADDITIONAL,
     CMD_VOTE_DEFAULT_ERROR_TITLE,
-    CMD_VOTE_DEFAULT_ERROR_NAME,
-    CMD_VOTE_ERROR_FIELD_01_CONJ
+    CMD_VOTE_DEFAULT_ERROR_NAME,    
 } from "../../message.json";
 import { getMessage } from "../message"
 import { getDefaultEmbed, getErrorEmbed, getIDEmbed, safeGet } from '../embed'
@@ -40,6 +39,19 @@ function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function formatString(str: string, ... args: any[]) {
+    return str.replace(/{(\d+)}/g, function (match, n) {
+        return typeof args[n] != 'undefined' ? args[n]: match;
+    });
+};
+
+let Field: {
+    name: string,
+    value: string
+};
+
+type Field = typeof Field;
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('vote')
@@ -49,40 +61,40 @@ module.exports = {
                 .setDescription(getMessage(CMD_VOTE_CHOICE_TITLE_DESCRIPTION))
                 .setRequired(true))
         .addStringOption(option =>
-            option.setName(getMessage(CMD_VOTE_CHOICE_ITEM1))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+            option.setName(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(true)) // 'vote' command requires at least one option        
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(2)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(3)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(4)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(5)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(6)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(7)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(8)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(getOptionObj(9)))
-                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM1_DESCRIPTION))
+                .setDescription(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT_DESCRIPTION))
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(getMessage(CMD_VOTE_CHOICE_DESCRIPTION))
@@ -93,23 +105,15 @@ module.exports = {
         let tmp: any;
 
         const title = safeGet<CommandInteractionOption<CacheType>>(interaction.options.get(getMessage(CMD_VOTE_CHOICE_TITLE)));
-
-        const item1 = safeGet<CommandInteractionOption<CacheType>>(interaction.options.get(getMessage(CMD_VOTE_CHOICE_ITEM1)));
+        const item1 = safeGet<CommandInteractionOption<CacheType>>(interaction.options.get(getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT)));
 
         tmp = interaction.options.get(getMessage(CMD_VOTE_CHOICE_DESCRIPTION));
-        const description = tmp == null ? null : safeGet<string>(tmp.value);
-
-        let Field: {
-            name: string,
-            value: string
-        };
-
-        type Field = typeof Field;
+        const description = tmp == null ? null : safeGet<string>(tmp.value);            
 
         let fields: Field[] = [];
         let num_seq: number[] = [];
 
-        fields.push({ name: getMessage(CMD_VOTE_CHOICE_ITEM1), value: safeGet<string>(item1.value) });
+        fields.push({ name: getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT), value: safeGet<string>(item1.value) });
 
         for (let i = 2; i < 10; i++) {
             const name = getMessage(getOptionObj(i))
@@ -123,18 +127,18 @@ module.exports = {
 
         let lastOf = (l: Field[]) => l[l.length - 1];
 
-        if (safeGet<Field>(lastOf(fields)).name.replace('번', '') != fields.length.toString()) {
-            let s: string = '';
+        if (safeGet<Field>(lastOf(fields)).name.replace('번', '') != fields.length.toString()) {            
+            let p, q: string ='';
 
             for (let i = 0; i < num_seq.length; i++) {
                 if (i == num_seq.length - 1) {
-                    s = s + `${getMessage(CMD_VOTE_ERROR_FIELD_01_CONJ)} ` + num_seq[i].toString()
+                    q = num_seq[i].toString()
                 } else {
-                    s = s + num_seq[i].toString() + ', '
+                    p = p + num_seq[i].toString() + ', '
                 }
-            }
+            }            
 
-            s = getMessage(CMD_VOTE_ERROR_FIELD_01) + '\n' + `**'${s}'** ` + getMessage(CMD_VOTE_ERROR_FIELD_01_01)
+            let s = getMessage(CMD_VOTE_ERROR_FIELD_SERIES) + '\n' + formatString(getMessage(CMD_VOTE_ERROR_FIELD_SERIES_ADDITIONAL), p, q)
 
             await interaction.reply({
                 embeds: [getErrorEmbed(
