@@ -114,6 +114,7 @@ module.exports = {
         let num_seq: number[] = [];
 
         fields.push({ name: getMessage(CMD_VOTE_CHOICE_ITEM_DEFAULT), value: safeGet<string>(item1.value) });
+        num_seq.push(1);
 
         for (let i = 2; i < 10; i++) {
             const name = getMessage(getOptionObj(i))
