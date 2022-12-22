@@ -128,7 +128,8 @@ module.exports = {
         let lastOf = (l: Field[]) => l[l.length - 1];
 
         if (safeGet<Field>(lastOf(fields)).name.replace('번', '') != fields.length.toString()) {            
-            let p, q: string ='';
+            let p: string =''; 
+            let q: string ='';
 
             for (let i = 0; i < num_seq.length; i++) {
                 if (i == num_seq.length - 1) {
